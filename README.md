@@ -62,5 +62,3 @@ class App extends React.Component {
 
 export default App
 ```
-
-Example [Here](https://github.com/jayson991/react-modal/tree/master/example)

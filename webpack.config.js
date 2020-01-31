@@ -22,20 +22,6 @@ module.exports = {
           },
           'eslint-loader'
         ]
-      },
-      {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'css-loader',
-            options: {
-              modules: false
-            }
-          },
-          'postcss-loader',
-          'sass-loader'
-        ]
       }
     ]
   }

@@ -1,6 +1,6 @@
 {
 	"name": "@lingjie991/react-modal",
-	"version": "0.0.6",
+	"version": "1.0.0",
 	"description": "A React Component To Use Modal Like Bootstrap Intelligently",
 	"main": "lib/index.js",
 	"scripts": {
