@@ -1,6 +1,6 @@
 {
 	"name": "@lingjie991/react-modal",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "A React Component To Use Modal Like Bootstrap Intelligently",
 	"main": "lib/index.js",
 	"scripts": {
@@ -32,26 +32,26 @@
 		"url": "git+https://github.com/jayson991/react-modal.git"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.11.6",
-		"@babel/preset-env": "^7.11.5",
-		"@babel/preset-react": "^7.10.4",
+		"@babel/core": "^7.12.3",
+		"@babel/preset-env": "^7.12.1",
+		"@babel/preset-react": "^7.12.5",
 		"babel-eslint": "^10.1.0",
 		"babel-loader": "^8.1.0",
-		"eslint": "^7.11.0",
-		"eslint-config-prettier": "^6.12.0",
+		"eslint": "^7.13.0",
+		"eslint-config-prettier": "^6.15.0",
 		"eslint-config-react": "^1.1.7",
 		"eslint-loader": "^4.0.2",
 		"eslint-plugin-jsx-control-statements": "^2.2.1",
 		"eslint-plugin-prettier": "^3.1.4",
-		"eslint-plugin-react": "^7.21.4",
+		"eslint-plugin-react": "^7.21.5",
 		"prettier": "^2.1.2",
-		"react": "^16.13.1",
-		"react-dom": "^16.13.1",
-		"webpack": "^5.0.0",
-		"webpack-cli": "^4.0.0"
+		"react": "^16.14.0",
+		"react-dom": "^16.14.0",
+		"webpack": "^5.4.0",
+		"webpack-cli": "^4.2.0"
 	},
 	"peerDependencies": {
-		"react": "^16.13.1",
-		"react-dom": "^16.13.1"
+		"react": "^16.14.0",
+		"react-dom": "^16.14.0"
 	}
 }
