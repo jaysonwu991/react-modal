@@ -1,4 +1,6 @@
 const path = require('path')
+const ESLintPlugin = require('eslint-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'production',
@@ -11,18 +13,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env', '@babel/preset-react']
-            }
-          },
-          'eslint-loader'
-        ]
+        use: [ 'babel-loader' ]
       }
     ]
-  }
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new ESLintPlugin()
+  ]
 }
