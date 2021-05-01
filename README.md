@@ -29,7 +29,7 @@ const App = () => {
         showModal={showModal}
         onHideModal={() => setShowModal(false)}
       >
-        <p>Hello World!</p>
+        <h1>Hello World!</h1>
       </Modal>
     </div>
   )

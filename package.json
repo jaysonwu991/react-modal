@@ -1,13 +1,13 @@
 {
 	"name": "@lingjie991/react-modal",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"description": "A React Component To Use Modal Like Bootstrap Intelligently",
+	"license": "MIT",
+	"author": "jayson991 <wulingjie991@outlook.com>",
 	"main": "lib/index.js",
 	"scripts": {
 		"build": "webpack"
 	},
-	"author": "jayson991 <wulingjie991@outlook.com>",
-	"license": "ISC",
 	"files": [
 		"lib",
 		"README.md",
@@ -32,34 +32,29 @@
 		"url": "git+https://github.com/jayson991/react-modal.git"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.12.10",
-		"@babel/plugin-proposal-class-properties": "^7.12.1",
-		"@babel/plugin-proposal-export-default-from": "^7.12.1",
-		"@babel/plugin-transform-arrow-functions": "^7.12.1",
-		"@babel/plugin-transform-react-jsx": "^7.12.11",
-		"@babel/plugin-transform-template-literals": "^7.12.1",
-		"@babel/preset-env": "^7.12.11",
-		"@babel/preset-react": "^7.12.10",
-		"babel-eslint": "^10.1.0",
-		"babel-loader": "^8.2.2",
+		"@babel/core": "^7.14.0",
+		"@babel/eslint-parser": "^7.13.14",
+		"@babel/eslint-plugin": "^7.13.16",
+		"@babel/preset-env": "^7.14.0",
+		"@babel/preset-react": "^7.13.13",
 		"clean-webpack-plugin": "^3.0.0",
-		"core-js": "^3.8.1",
-		"eslint": "^7.16.0",
-		"eslint-config-prettier": "^7.1.0",
+		"esbuild-loader": "^2.12.0",
+		"eslint": "^7.25.0",
+		"eslint-config-prettier": "^8.3.0",
 		"eslint-config-react": "^1.1.7",
-		"eslint-plugin-jsx-control-statements": "^2.2.1",
-		"eslint-plugin-prettier": "^3.3.0",
-		"eslint-plugin-react": "^7.21.5",
-		"eslint-webpack-plugin": "^2.4.1",
+		"eslint-plugin-babel": "^5.3.1",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-prettier": "^3.4.0",
+		"eslint-plugin-react": "^7.23.2",
+		"eslint-webpack-plugin": "^2.5.4",
 		"prettier": "^2.2.1",
-		"react": "^17.0.1",
-		"react-dom": "^17.0.1",
-		"webpack": "^5.11.0",
-		"webpack-cli": "^4.2.0"
+    "react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"webpack": "^5.36.2",
+		"webpack-cli": "^4.6.0"
 	},
 	"peerDependencies": {
-		"core-js": "^3.8.1",
-		"react": "^17.0.1",
-		"react-dom": "^17.0.1"
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2"
 	}
 }

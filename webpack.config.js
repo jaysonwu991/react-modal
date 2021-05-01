@@ -16,9 +16,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
+        include: /src/,
         exclude: /node_modules/,
-        use: [ 'babel-loader' ]
+        loader: 'esbuild-loader',
+        options: {
+          loader: 'jsx',
+          target: 'es2015'
+        }
       }
     ]
   },

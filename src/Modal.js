@@ -1,11 +1,21 @@
 import React, { useRef, useState, useLayoutEffect } from 'react'
 
-import { MODAL_BACKDROP, MODAL, MODAL_DIALOG, MODAL_CONTENT, MODAL_HEADER, MODAL_TITLE, MODAL_CLOSE, MODAL_CLOSE_HOVER, MODAL_BODY } from './ModalStyle'
+import {
+  MODAL_BACKDROP,
+  MODAL,
+  MODAL_DIALOG,
+  MODAL_CONTENT,
+  MODAL_HEADER,
+  MODAL_TITLE,
+  MODAL_CLOSE,
+  MODAL_CLOSE_HOVER,
+  MODAL_BODY
+} from './ModalStyle'
 
 const Modal = ({ title, showModal, onHideModal, children }) => {
   const modalContent = useRef(null)
-  const [ hover, setHover ] = useState(false)
-  const [ marginTop, setMarginTop ] = useState(60)
+  const [hover, setHover] = useState(false)
+  const [marginTop, setMarginTop] = useState(60)
 
   useLayoutEffect(() => {
     fixMarginTop()
@@ -13,11 +23,8 @@ const Modal = ({ title, showModal, onHideModal, children }) => {
   }, [])
 
   const getClientWidthHeight = () => {
-    const width =
-      (modalContent && modalContent.current && modalContent.current.clientWidth) || 0
-    const height =
-      (modalContent && modalContent.current && modalContent.current.clientHeight) ||
-      0
+    const width = (modalContent && modalContent.current && modalContent.current.clientWidth) || 0
+    const height = (modalContent && modalContent.current && modalContent.current.clientHeight) || 0
     return { width, height }
   }
 
@@ -55,10 +62,7 @@ const Modal = ({ title, showModal, onHideModal, children }) => {
       <div style={MODAL_BACKDROP}></div>
       <div tabIndex={-1} role='dialog' onClick={onHideModal} style={MODAL}>
         <div role='document' style={MODAL_DIALOG}>
-          <div
-            ref={modalContent}
-            style={{ ...MODAL_CONTENT, marginTop }}
-          >
+          <div ref={modalContent} style={{ ...MODAL_CONTENT, marginTop }}>
             <div style={MODAL_HEADER}>
               <h5 style={MODAL_TITLE}>{title || ''}</h5>
               <button
