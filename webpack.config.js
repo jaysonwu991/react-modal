@@ -14,7 +14,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.m?jsx?$/,
         include: /src/,
         exclude: /node_modules/,
         loader: 'esbuild-loader',
