@@ -4,8 +4,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
   mode: 'production',
   entry: './src/index.js',
-  // webpack 5.x default output ES6
-  target: ['web', 'es5'],
   output: {
     filename: 'index.js',
     libraryTarget: 'commonjs2',
@@ -17,11 +15,16 @@ module.exports = {
         test: /\.m?jsx?$/,
         include: /src/,
         exclude: /node_modules/,
-        loader: 'esbuild-loader',
-        options: {
-          loader: 'jsx',
-          target: 'es2015'
-        }
+        use: [
+          'swc-loader',
+          {
+            loader: 'esbuild-loader',
+            options: {
+              loader: 'jsx',
+              target: 'es2015'
+            }
+          }
+        ]
       }
     ]
   },
