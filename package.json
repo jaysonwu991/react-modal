@@ -23,13 +23,13 @@
 		"bootstrap",
 		"react-modal"
 	],
-	"homepage": "https://github.com/jayson991/react-modal",
+	"homepage": "https://github.com/jaysonwu991/react-modal",
 	"bugs": {
-		"url": "https://github.com/jayson991/react-modal/issues"
+		"url": "https://github.com/jaysonwu991/react-modal/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/jayson991/react-modal.git"
+		"url": "git+https://github.com/jaysonwu991/react-modal.git"
 	},
 	"devDependencies": {
 		"@babel/eslint-parser": "^7.15.4",
