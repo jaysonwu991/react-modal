@@ -9,14 +9,14 @@
 ## Installation
 
 ```bash
-$ npm i -S @lingjie991/react-modal
+$ npm i -S @jayson991/react-modal
 ```
 
 ## Usage With React
 
 ```javascript
 import React from 'react'
-import Modal from '@lingjie991/react-modal'
+import Modal from '@jayson991/react-modal'
 
 const App = () => {
   const [showModal, setShowModal] = useState(false)
