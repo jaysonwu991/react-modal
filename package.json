@@ -1,14 +1,19 @@
 {
 	"name": "@jayson991/react-modal",
-	"version": "1.1.8",
+	"version": "1.1.9",
 	"description": "A React Component To Use Modal Like Bootstrap Intelligently",
 	"license": "MIT",
 	"author": "jayson991 <jaysonwu991@outlook.com>",
 	"main": "lib/index.js",
-	"types": "lib/index.d.ts",
 	"scripts": {
-		"build": "webpack"
+		"build": "webpack",
+		"lint": "eslint ./ --ext .js,.jsx",
+		"lint:fix": "eslint ./ --fix --ext .js,.jsx",
+		"prettify": "prettier --write src/**/*.{js,jsx}"
 	},
+  "publishConfig": {
+    "access": "public"
+  },
 	"files": [
 		"lib",
 		"README.md",
@@ -32,9 +37,12 @@
 		"url": "git+https://github.com/jaysonwu991/react-modal.git"
 	},
 	"devDependencies": {
-		"@babel/eslint-parser": "^7.15.4",
+		"@babel/core": "^7.15.5",
+		"@babel/eslint-parser": "^7.15.7",
 		"@babel/eslint-plugin": "^7.14.5",
-		"@swc/core": "^1.2.88",
+		"@babel/preset-env": "^7.15.6",
+		"@babel/preset-react": "^7.14.5",
+		"@swc/core": "^1.2.93",
 		"clean-webpack-plugin": "^4.0.0",
 		"esbuild-loader": "^2.15.1",
 		"eslint": "^7.32.0",
@@ -43,12 +51,14 @@
 		"eslint-plugin-babel": "^5.3.1",
 		"eslint-plugin-import": "^2.24.2",
 		"eslint-plugin-prettier": "^4.0.0",
-		"eslint-plugin-react": "^7.25.2",
+		"eslint-plugin-react": "^7.26.1",
+		"eslint-plugin-react-hooks": "^4.2.0",
 		"prettier": "^2.4.1",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"swc-loader": "^0.1.15",
-		"webpack": "^5.53.0",
+		"terser-webpack-plugin": "^5.2.4",
+		"webpack": "^5.57.1",
 		"webpack-cli": "^4.8.0"
 	},
 	"peerDependencies": {

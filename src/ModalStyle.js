@@ -6,8 +6,8 @@ export const MODAL_BACKDROP = {
   bottom: 0,
   left: 0,
   backgroundColor: '#000',
-  opacity: 0.5
-}
+  opacity: 0.5,
+};
 
 export const MODAL = {
   zIndex: 1050,
@@ -18,14 +18,14 @@ export const MODAL = {
   left: 0,
   overflow: 'hidden',
   WebkitOverflowScrolling: 'touch',
-  outline: 0
-}
+  outline: 0,
+};
 
 export const MODAL_DIALOG = {
   position: 'relative',
   margin: '60px auto',
-  maxWidth: '680px'
-}
+  maxWidth: '680px',
+};
 
 export const MODAL_CONTENT = {
   position: 'relative',
@@ -35,17 +35,17 @@ export const MODAL_CONTENT = {
   borderRadius: '6px',
   WebkitBoxShadow: '0 3px 9px rgba(0, 0, 0, 0.5)',
   boxShadow: '0 3px 9px rgba(0, 0, 0, 0.5)',
-  outline: 0
-}
+  outline: 0,
+};
 
 export const MODAL_HEADER = {
   padding: '16px',
-  borderBottom: '1px solid #e5e5e5'
-}
+  borderBottom: '1px solid #e5e5e5',
+};
 
 export const MODAL_TITLE = {
-  margin: 0
-}
+  margin: 0,
+};
 
 export const MODAL_CLOSE = {
   float: 'right',
@@ -63,18 +63,18 @@ export const MODAL_CLOSE = {
   appearance: 'none',
   filter: 'alpha(opacity=20)',
   opacity: 0.2,
-  cursor: 'pointer'
-}
+  cursor: 'pointer',
+};
 
 export const MODAL_CLOSE_HOVER = {
   color: '#000',
   textDecoration: 'none',
   filter: 'alpha(opacity=50)',
   opacity: 0.5,
-  cursor: 'pointer'
-}
+  cursor: 'pointer',
+};
 
 export const MODAL_BODY = {
   position: 'relative',
-  padding: '16px'
-}
+  padding: '16px',
+};
