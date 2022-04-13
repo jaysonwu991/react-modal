@@ -7,13 +7,13 @@
 	"main": "lib/index.js",
 	"scripts": {
 		"build": "webpack",
-		"lint": "eslint ./ --ext .js,.jsx",
-		"lint:fix": "eslint ./ --fix --ext .js,.jsx",
-		"prettify": "prettier --write src/**/*.{js,jsx}"
+		"lint": "eslint ./ --ext .js",
+		"lint:fix": "eslint ./ --fix --ext .js",
+		"prettify": "prettier --write src/**/*.js"
 	},
-  "publishConfig": {
-    "access": "public"
-  },
+	"publishConfig": {
+		"access": "public"
+	},
 	"files": [
 		"lib",
 		"README.md",
@@ -37,32 +37,27 @@
 		"url": "git+https://github.com/jaysonwu991/react-modal.git"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.15.5",
-		"@babel/eslint-parser": "^7.15.7",
-		"@babel/eslint-plugin": "^7.14.5",
-		"@babel/preset-env": "^7.15.6",
-		"@babel/preset-react": "^7.14.5",
-		"@swc/core": "^1.2.93",
+		"@babel/core": "^7.17.9",
+		"@babel/eslint-parser": "^7.17.0",
+		"@babel/eslint-plugin": "^7.17.7",
+		"@babel/preset-env": "^7.16.11",
+		"@babel/preset-react": "^7.16.7",
+		"@swc/core": "^1.2.165",
 		"clean-webpack-plugin": "^4.0.0",
-		"esbuild-loader": "^2.15.1",
-		"eslint": "^7.32.0",
-		"eslint-config-prettier": "^8.3.0",
+		"esbuild-loader": "^2.18.0",
+		"eslint": "^8.13.0",
+		"eslint-config-prettier": "^8.5.0",
 		"eslint-config-react": "^1.1.7",
 		"eslint-plugin-babel": "^5.3.1",
-		"eslint-plugin-import": "^2.24.2",
+		"eslint-plugin-import": "^2.26.0",
 		"eslint-plugin-prettier": "^4.0.0",
-		"eslint-plugin-react": "^7.26.1",
-		"eslint-plugin-react-hooks": "^4.2.0",
-		"prettier": "^2.4.1",
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2",
-		"swc-loader": "^0.1.15",
-		"terser-webpack-plugin": "^5.2.4",
-		"webpack": "^5.57.1",
-		"webpack-cli": "^4.8.0"
-	},
-	"peerDependencies": {
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2"
+		"eslint-plugin-react": "^7.29.4",
+		"eslint-plugin-react-hooks": "^4.4.0",
+		"prettier": "^2.6.2",
+		"react": "^18.0.0",
+		"swc-loader": "^0.1.16",
+		"terser-webpack-plugin": "^5.3.1",
+		"webpack": "^5.72.0",
+		"webpack-cli": "^4.9.2"
 	}
 }
