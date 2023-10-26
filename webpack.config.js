@@ -5,11 +5,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   mode: 'production',
   target: ['web', 'es5'],
-  entry: './src/index.js',
+  entry: [path.resolve(__dirname, 'src/index.js')],
   output: {
     filename: 'index.js',
     libraryTarget: 'commonjs2',
     path: path.resolve(__dirname, './lib'),
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
   module: {
     rules: [
@@ -22,7 +25,6 @@ module.exports = {
           {
             loader: 'esbuild-loader',
             options: {
-              loader: 'jsx',
               target: 'es2015',
             },
           },
