@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import Input from './Input';
+import Icon from '../Icon/Icon';
 
 const meta = {
 	title: 'Input',
@@ -163,14 +164,14 @@ export const Sizes: Story = {
 // With Prefix
 export const WithPrefix: Story = {
 	args: {
-		label: 'Website',
-		placeholder: 'example.com',
-		prefix: <span style={{ fontSize: '14px' }}>https://</span>,
+		label: 'Search',
+		placeholder: 'Search...',
+		prefix: <Icon name="search" size={16} color="#6b7280" />,
 	},
 	parameters: {
 		docs: {
 			description: {
-				story: 'Input with a prefix element. Useful for URLs, prices, etc.',
+				story: 'Input with an icon prefix. Perfect for search boxes, URLs, etc.',
 			},
 		},
 	},
@@ -179,15 +180,32 @@ export const WithPrefix: Story = {
 // With Suffix
 export const WithSuffix: Story = {
 	args: {
-		label: 'Price',
-		type: 'number',
-		placeholder: '0.00',
-		suffix: <span style={{ fontSize: '14px', fontWeight: 600 }}>USD</span>,
+		label: 'Email',
+		type: 'email',
+		placeholder: 'your@email.com',
+		suffix: <Icon name="mail" size={16} color="#6b7280" />,
 	},
 	parameters: {
 		docs: {
 			description: {
-				story: 'Input with a suffix element. Useful for currency, units, etc.',
+				story: 'Input with an icon suffix. Useful for visual indicators, actions, etc.',
+			},
+		},
+	},
+};
+
+// With Both Prefix and Suffix
+export const WithPrefixAndSuffix: Story = {
+	args: {
+		label: 'Website URL',
+		placeholder: 'example.com',
+		prefix: <Icon name="link" size={16} color="#6b7280" />,
+		suffix: <Icon name="check" size={16} color="#10b981" />,
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: 'Input with both prefix and suffix icons.',
 			},
 		},
 	},
@@ -333,6 +351,56 @@ export const AllTypes: Story = {
 		docs: {
 			description: {
 				story: 'Examples of different HTML input types supported.',
+			},
+		},
+	},
+};
+
+// With Icon Examples
+export const WithIcons: Story = {
+	render: () => (
+		<div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '100%' }}>
+			<Input
+				label="Search"
+				placeholder="Search anything..."
+				prefix={<Icon name="search" size={16} color="#6b7280" />}
+			/>
+			<Input
+				label="Email Address"
+				type="email"
+				placeholder="your@email.com"
+				prefix={<Icon name="mail" size={16} color="#6b7280" />}
+			/>
+			<Input
+				label="Password"
+				type="password"
+				placeholder="Enter password"
+				prefix={<Icon name="lock" size={16} color="#6b7280" />}
+				suffix={<Icon name="eye" size={16} color="#6b7280" />}
+			/>
+			<Input
+				label="Phone Number"
+				type="tel"
+				placeholder="+1 (555) 000-0000"
+				prefix={<Icon name="phone" size={16} color="#6b7280" />}
+			/>
+			<Input
+				label="Location"
+				placeholder="Enter your address"
+				prefix={<Icon name="location" size={16} color="#6b7280" />}
+			/>
+			<Input
+				label="Calendar"
+				type="date"
+				prefix={<Icon name="calendar" size={16} color="#6b7280" />}
+			/>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'Input fields with various icon prefixes and suffixes. Icons provide visual context for different input types.',
 			},
 		},
 	},

@@ -1,6 +1,7 @@
 // Icon Component Styles
 
 .icon-wrapper {
+	position: relative;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -14,11 +15,11 @@
 		cursor: pointer;
 		transition: opacity 200ms ease-in-out, transform 100ms ease-in-out;
 
-		&:hover {
+		&:hover:not(.icon-disabled, .icon-loading) {
 			opacity: 0.8;
 		}
 
-		&:active {
+		&:active:not(.icon-disabled, .icon-loading) {
 			transform: scale(0.95);
 		}
 
@@ -31,6 +32,17 @@
 		&:focus:not(:focus-visible) {
 			outline: none;
 		}
+	}
+
+	// Disabled state
+	&.icon-disabled {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+
+	// Loading state
+	&.icon-loading {
+		cursor: wait;
 	}
 }
 
@@ -55,6 +67,66 @@
 	vertical-align: baseline;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+// Animation: Spin
+@keyframes icon-spin {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.icon-spin {
+	animation: icon-spin 1s linear infinite;
+}
+
+// Animation: Pulse
+@keyframes icon-pulse {
+	0%,
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+
+	50% {
+		transform: scale(1.1);
+		opacity: 0.8;
+	}
+}
+
+.icon-pulse {
+	animation: icon-pulse 1.5s ease-in-out infinite;
+}
+
+// Badge overlay
+.icon-badge {
+	position: absolute;
+	top: -4px;
+	right: -8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 18px;
+	height: 18px;
+	padding: 0 4px;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1;
+	color: #fff;
+	background-color: #ef4444;
+	border-radius: 9px;
+	border: 2px solid #fff;
+	box-shadow: 0 1px 3px rgb(0 0 0 / 12%);
+	white-space: nowrap;
+}
+
+// Badge with wrapper positioning
+.icon-with-badge {
+	position: relative;
 }
 
 // Responsive Design
@@ -111,5 +183,11 @@
 		&:active {
 			transform: none;
 		}
+	}
+
+	// Disable animations for accessibility
+	.icon-spin,
+	.icon-pulse {
+		animation: none;
 	}
 }
