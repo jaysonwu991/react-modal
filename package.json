@@ -1,63 +1,85 @@
 {
 	"name": "@jayson991/react-modal",
-	"version": "1.2.0",
-	"description": "A React Component To Use Modal Like Bootstrap Intelligently",
+	"version": "2.0.0",
+	"description": "A modern, responsive, and accessible React modal component with TypeScript, Sass, and full mobile support",
 	"license": "MIT",
 	"author": "jayson991 <jaysonwu991@outlook.com>",
-	"main": "lib/index.js",
-	"scripts": {
-		"build": "webpack",
-		"lint": "eslint ./ --ext .js",
-		"lint:fix": "eslint ./ --fix --ext .js",
-		"prettify": "prettier --write src/**/*.js"
-	},
-	"publishConfig": {
-		"access": "public"
-	},
-	"files": [
-		"lib",
-		"README.md",
-		"package.json"
-	],
-	"keywords": [
-		"modal",
-		"react",
-		"eslint",
-		"webpack",
-		"prettier",
-		"bootstrap",
-		"react-modal"
-	],
 	"homepage": "https://github.com/jaysonwu991/react-modal",
-	"bugs": {
-		"url": "https://github.com/jaysonwu991/react-modal/issues"
-	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/jaysonwu991/react-modal.git"
 	},
+	"bugs": {
+		"url": "https://github.com/jaysonwu991/react-modal/issues"
+	},
+	"keywords": [
+		"react",
+		"modal",
+		"dialog",
+		"typescript",
+		"sass",
+		"responsive",
+		"accessible",
+		"mobile",
+		"ui-component"
+	],
+	"main": "lib/index.cjs",
+	"module": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"style": "lib/react-modal.css",
+	"exports": {
+		".": {
+			"types": "./lib/index.d.ts",
+			"import": "./lib/index.js",
+			"require": "./lib/index.cjs"
+		},
+		"./styles": "./lib/react-modal.css"
+	},
+	"files": [
+		"lib",
+		"README.md"
+	],
+	"scripts": {
+		"build": "vite build",
+		"type-check": "tsc --noEmit",
+		"lint": "oxlint src",
+		"format": "oxlint --fix src",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:coverage": "vitest run --coverage",
+		"test:ui": "vitest --ui",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
+	},
+	"peerDependencies": {
+		"react": ">=18.0.0",
+		"react-dom": ">=18.0.0"
+	},
 	"devDependencies": {
-		"@babel/core": "^7.23.2",
-		"@babel/eslint-parser": "^7.22.15",
-		"@babel/eslint-plugin": "^7.22.10",
-		"@babel/preset-env": "^7.23.2",
-		"@babel/preset-react": "^7.22.15",
-		"@swc/core": "^1.3.95",
-		"clean-webpack-plugin": "^4.0.0",
-		"esbuild-loader": "^4.0.2",
-		"eslint": "^8.52.0",
-		"eslint-config-prettier": "^9.0.0",
-		"eslint-config-react": "^1.1.7",
-		"eslint-plugin-babel": "^5.3.1",
-		"eslint-plugin-import": "^2.29.0",
-		"eslint-plugin-prettier": "^5.0.1",
-		"eslint-plugin-react": "^7.33.2",
-		"eslint-plugin-react-hooks": "^4.6.0",
-		"prettier": "^3.0.3",
-		"react": "^18.2.0",
-		"swc-loader": "^0.2.3",
-		"terser-webpack-plugin": "^5.3.9",
-		"webpack": "^5.89.0",
-		"webpack-cli": "^5.1.4"
+		"@storybook/addon-links": "^10.1.8",
+		"@storybook/react": "^10.1.8",
+		"@storybook/react-vite": "^10.1.8",
+		"@testing-library/jest-dom": "^6.9.1",
+		"@testing-library/react": "^16.3.0",
+		"@testing-library/user-event": "^14.6.1",
+		"@types/node": "^25.0.2",
+		"@types/react": "^19.2.7",
+		"@types/react-dom": "^19.2.3",
+		"@vitejs/plugin-react": "^5.1.2",
+		"@vitest/coverage-v8": "^4.0.15",
+		"@vitest/ui": "^4.0.15",
+		"jsdom": "^27.3.0",
+		"oxlint": "^1.32.0",
+		"react": "^19.2.3",
+		"react-dom": "^19.2.3",
+		"sass": "^1.96.0",
+		"storybook": "^10.1.8",
+		"typescript": "^5.9.3",
+		"vite": "^7.2.7",
+		"vite-plugin-dts": "^4.5.4",
+		"vitest": "^4.0.15"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
