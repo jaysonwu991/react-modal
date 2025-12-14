@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, ReactNode } from 'react';
+import type { InputHTMLAttributes, ReactNode, FC } from 'react';
 import './Input.scss';
 
 export type InputSize = 'small' | 'medium' | 'large';
@@ -22,7 +22,7 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
 	className?: string;
 }
 
-const Input: React.FC<InputProps> = ({
+const Input: FC<InputProps> = ({
 	label,
 	error,
 	helperText,

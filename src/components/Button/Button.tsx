@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, ReactNode, FC } from 'react';
 import './Button.scss';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'ghost';
@@ -19,7 +19,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Button: FC<ButtonProps> = ({
 	children,
 	variant = 'primary',
 	size = 'medium',

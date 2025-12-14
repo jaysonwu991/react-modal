@@ -1,4 +1,5 @@
-import React from 'react';
+import { useMemo } from 'react';
+import type { CSSProperties, FC, MouseEvent } from 'react';
 import './Icon.scss';
 
 export interface IconProps {
@@ -34,7 +35,7 @@ export interface IconProps {
 	/**
 	 * Inline styles
 	 */
-	style?: React.CSSProperties;
+	style?: CSSProperties;
 
 	/**
 	 * ARIA label for accessibility
@@ -44,7 +45,7 @@ export interface IconProps {
 	/**
 	 * Click handler
 	 */
-	onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
+	onClick?: (event: MouseEvent<HTMLSpanElement>) => void;
 }
 
 /**
@@ -63,7 +64,7 @@ export interface IconProps {
  * <Icon type="svg" name="user" size={20} color="#ff0000" />
  * ```
  */
-const Icon: React.FC<IconProps> = ({
+const Icon: FC<IconProps> = ({
 	name,
 	type = 'font',
 	size,
@@ -74,7 +75,7 @@ const Icon: React.FC<IconProps> = ({
 	onClick,
 }) => {
 	// Normalize color to include # prefix if it looks like a hex color
-	const normalizedColor = React.useMemo(() => {
+	const normalizedColor = useMemo(() => {
 		if (!color) return undefined;
 
 		// If it's already a valid CSS color (contains # or is a named color)
@@ -87,12 +88,12 @@ const Icon: React.FC<IconProps> = ({
 	}, [color]);
 
 	// Normalize size to include px suffix
-	const normalizedSize = React.useMemo(() => {
+	const normalizedSize = useMemo(() => {
 		if (!size) return undefined;
 		return typeof size === 'number' ? `${size}px` : size;
 	}, [size]);
 
-	const iconStyle: React.CSSProperties = {
+	const iconStyle: CSSProperties = {
 		...style,
 		...(normalizedColor && { color: normalizedColor }),
 		...(normalizedSize && { fontSize: normalizedSize }),

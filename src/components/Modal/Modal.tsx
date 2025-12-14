@@ -1,4 +1,5 @@
-import React, { useRef, useState, useEffect, ReactNode, CSSProperties } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import type { ReactNode, CSSProperties, FC, MouseEvent } from 'react';
 import { createPortal } from 'react-dom';
 
 export type ModalSize = 'small' | 'medium' | 'large' | 'fullscreen';
@@ -54,7 +55,7 @@ export interface ModalProps {
   scrollable?: boolean;
 }
 
-const Modal: React.FC<ModalProps> = ({
+const Modal: FC<ModalProps> = ({
   title,
   showModal,
   onHideModal,
@@ -161,7 +162,7 @@ const Modal: React.FC<ModalProps> = ({
     return undefined;
   }, [showModal]);
 
-  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleBackdropClick = (e: MouseEvent<HTMLDivElement>) => {
     if (closeOnBackdropClick && e.target === e.currentTarget) {
       onHideModal();
     }
