@@ -1,8 +1,11 @@
 import type { Preview } from '@storybook/react';
-import '../src/Modal.scss';
+import '../src/components/Modal/Modal.scss';
+import '../src/components/Button/Button.scss';
+import '../src/components/Input/Input.scss';
 
 const preview: Preview = {
   parameters: {
+    layout: 'centered',
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -23,6 +26,7 @@ const preview: Preview = {
       ],
     },
   },
+  tags: ['autodocs'],
 };
 
 export default preview;

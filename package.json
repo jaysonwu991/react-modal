@@ -1,39 +1,59 @@
 {
-	"name": "@jayson991/react-modal",
-	"version": "2.0.0",
-	"description": "A modern, responsive, and accessible React modal component with TypeScript, Sass, and full mobile support",
+	"name": "@jayson991/react-ui",
+	"version": "1.0.0",
+	"description": "A modern, responsive, and accessible React UI component library with TypeScript and Sass",
 	"license": "MIT",
 	"author": "jayson991 <jaysonwu991@outlook.com>",
-	"homepage": "https://github.com/jaysonwu991/react-modal",
+	"homepage": "https://github.com/jaysonwu991/react-ui",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/jaysonwu991/react-modal.git"
+		"url": "git+https://github.com/jaysonwu991/react-ui.git"
 	},
 	"bugs": {
-		"url": "https://github.com/jaysonwu991/react-modal/issues"
+		"url": "https://github.com/jaysonwu991/react-ui/issues"
 	},
 	"keywords": [
 		"react",
+		"ui-library",
+		"components",
 		"modal",
-		"dialog",
+		"button",
+		"input",
+		"icon",
+		"iconfont",
 		"typescript",
 		"sass",
 		"responsive",
 		"accessible",
-		"mobile",
-		"ui-component"
+		"design-system"
 	],
 	"main": "lib/index.cjs",
 	"module": "lib/index.js",
 	"types": "lib/index.d.ts",
-	"style": "lib/react-modal.css",
+	"style": "lib/react-ui.css",
 	"exports": {
 		".": {
 			"types": "./lib/index.d.ts",
 			"import": "./lib/index.js",
 			"require": "./lib/index.cjs"
 		},
-		"./styles": "./lib/react-modal.css"
+		"./styles": "./lib/react-ui.css",
+		"./Modal": {
+			"types": "./lib/components/Modal/index.d.ts",
+			"import": "./lib/components/Modal/index.js"
+		},
+		"./Button": {
+			"types": "./lib/components/Button/index.d.ts",
+			"import": "./lib/components/Button/index.js"
+		},
+		"./Input": {
+			"types": "./lib/components/Input/index.d.ts",
+			"import": "./lib/components/Input/index.js"
+		},
+		"./Icon": {
+			"types": "./lib/components/Icon/index.d.ts",
+			"import": "./lib/components/Icon/index.js"
+		}
 	},
 	"files": [
 		"lib",
@@ -43,7 +63,9 @@
 		"build": "vite build",
 		"type-check": "tsc --noEmit",
 		"lint": "oxlint src",
+		"lint:sass": "stylelint \"src/**/*.scss\"",
 		"format": "oxlint --fix src",
+		"format:sass": "stylelint \"src/**/*.scss\" --fix",
 		"test": "vitest run",
 		"test:watch": "vitest",
 		"test:coverage": "vitest run --coverage",
@@ -74,6 +96,9 @@
 		"react-dom": "^19.2.3",
 		"sass": "^1.96.0",
 		"storybook": "^10.1.8",
+		"stylelint": "^16.26.1",
+		"stylelint-config-standard-scss": "^16.0.0",
+		"stylelint-scss": "^6.13.0",
 		"typescript": "^5.9.3",
 		"vite": "^7.2.7",
 		"vite-plugin-dts": "^4.5.4",

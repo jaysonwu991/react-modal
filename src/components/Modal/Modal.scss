@@ -2,6 +2,7 @@
 $breakpoint-mobile: 480px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
+$breakpoint-mobile-up: 481px;
 
 // Size variants
 $modal-size-small: 400px;
@@ -16,11 +17,11 @@ $spacing-lg: 24px;
 $spacing-xl: 32px;
 
 // Colors
-$backdrop-color: rgba(0, 0, 0, 0.5);
-$modal-bg: #ffffff;
+$backdrop-color: rgb(0 0 0 / 50%);
+$modal-bg: #fff;
 $border-color: #e5e7eb;
-$close-button-color: #000000;
-$close-button-hover: rgba(0, 0, 0, 0.5);
+$close-button-color: #000;
+$close-button-hover: rgb(0 0 0 / 50%);
 
 // Animation
 $animation-duration: 200ms;
@@ -36,7 +37,7 @@ $z-index-modal: 1000;
       @content;
     }
   } @else if $breakpoint == tablet {
-    @media (min-width: $breakpoint-mobile + 1) and (max-width: $breakpoint-tablet) {
+    @media (min-width: $breakpoint-mobile-up) and (max-width: $breakpoint-tablet) {
       @content;
     }
   } @else if $breakpoint == desktop {
@@ -44,7 +45,7 @@ $z-index-modal: 1000;
       @content;
     }
   } @else if $breakpoint == tablet-up {
-    @media (min-width: $breakpoint-mobile + 1) {
+    @media (min-width: $breakpoint-mobile-up) {
       @content;
     }
   } @else if $breakpoint == tablet-down {
@@ -57,10 +58,7 @@ $z-index-modal: 1000;
 // Modal wrapper (backdrop)
 .modal-wrapper {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: $z-index-modal;
   overflow: auto;
   background-color: $backdrop-color;
@@ -101,16 +99,16 @@ $z-index-modal: 1000;
   position: relative;
   background-color: $modal-bg;
   border-radius: 8px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%),
+    0 10px 10px -5px rgb(0 0 0 / 4%);
   width: 100%;
   max-width: $modal-size-medium;
   margin: auto;
 
   @include respond-to(tablet-down) {
     border-radius: 6px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%),
+      0 4px 6px -2px rgb(0 0 0 / 5%);
   }
 
   @include respond-to(mobile) {
@@ -247,12 +245,12 @@ $z-index-modal: 1000;
 
   &:hover {
     opacity: 0.5;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgb(0 0 0 / 5%);
   }
 
   &:active {
     opacity: 0.7;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgb(0 0 0 / 10%);
   }
 
   &:focus {
@@ -397,7 +395,7 @@ $z-index-modal: 1000;
 
     &:active {
       opacity: 0.5;
-      background-color: rgba(0, 0, 0, 0.05);
+      background-color: rgb(0 0 0 / 5%);
     }
   }
 
@@ -429,17 +427,17 @@ $z-index-modal: 1000;
 // High contrast mode support
 @media (prefers-contrast: high) {
   .modal-content {
-    border: 2px solid #000000;
+    border: 2px solid #000;
   }
 
   .modal-header,
   .modal-footer {
-    border-color: #000000;
+    border-color: #000;
   }
 
   .modal-close-button {
     opacity: 1;
-    border: 1px solid #000000;
+    border: 1px solid #000;
   }
 }
 

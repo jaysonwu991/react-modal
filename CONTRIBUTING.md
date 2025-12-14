@@ -1,383 +1,173 @@
-# Contributing to @jayson991/react-modal
+# Contributing to @jayson991/react-ui
 
-Thank you for your interest in contributing! This document provides guidelines for contributing to the project.
+First off, thank you for considering contributing to @jayson991/react-ui! It's people like you that make this library better for everyone.
 
-## 🚀 Getting Started
+## Code of Conduct
 
-### Prerequisites
+This project and everyone participating in it is expected to uphold a high standard of professionalism and respect.
 
-- Node.js 18+ (LTS recommended)
-- pnpm 9+ (required)
+## How Can I Contribute?
 
-### Setup
+### Reporting Bugs
 
-1. Fork the repository on GitHub
-2. Clone your fork locally:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/react-modal.git
-   cd react-modal
-   ```
+Before creating bug reports, please check the existing issues to avoid duplicates. When you create a bug report, include as many details as possible:
 
-3. Install dependencies:
-   ```bash
-   pnpm install
-   ```
+- **Use a clear and descriptive title**
+- **Describe the exact steps to reproduce the problem**
+- **Provide specific examples to demonstrate the steps**
+- **Describe the behavior you observed and what you expected**
+- **Include screenshots if relevant**
+- **Note your environment** (OS, browser, Node version, etc.)
 
-4. Create a new branch:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
+### Suggesting Enhancements
 
-## 🛠 Development Workflow
+Enhancement suggestions are tracked as GitHub issues. When creating an enhancement suggestion, include:
 
-### Available Scripts
+- **Use a clear and descriptive title**
+- **Provide a detailed description of the suggested enhancement**
+- **Explain why this enhancement would be useful**
+- **Include code examples if applicable**
+
+### Pull Requests
+
+1. **Fork the repo** and create your branch from `main`
+2. **Install dependencies** with `pnpm install`
+3. **Make your changes** following the coding guidelines below
+4. **Add tests** for any new functionality
+5. **Ensure all tests pass** with `pnpm test`
+6. **Update documentation** if needed
+7. **Commit your changes** with clear, descriptive messages
+8. **Push to your fork** and submit a pull request
+
+## Development Setup
 
 ```bash
+# Clone your fork
+git clone https://github.com/YOUR_USERNAME/react-ui.git
+cd react-ui
+
+# Install dependencies
+pnpm install
+
 # Run tests
 pnpm test
 
 # Run tests in watch mode
 pnpm test:watch
 
-# Run tests with coverage
-pnpm test:coverage
-
-# Run tests with UI
-pnpm test:ui
-
 # Type checking
 pnpm type-check
 
 # Linting
 pnpm lint
+pnpm lint:sass
 
-# Auto-fix linting issues
-pnpm format
-
-# Build library
+# Build
 pnpm build
 
 # Run Storybook
 pnpm storybook
-
-# Build Storybook
-pnpm build-storybook
 ```
 
-### Making Changes
-
-1. **Write Tests First** (TDD encouraged)
-   - Add tests in `src/Modal.test.tsx`
-   - Ensure tests fail before implementing feature
-   - Run `pnpm test:watch` during development
-
-2. **Implement Your Changes**
-   - Update `src/Modal.tsx` for component logic
-   - Update `src/Modal.scss` for styling
-   - Follow existing code style and patterns
-
-3. **Update Documentation**
-   - Add/update JSDoc comments for new props
-   - Add examples to `README.md` if needed
-   - Update `CHANGELOG.md` with your changes
-
-4. **Add Storybook Stories** (if applicable)
-   - Add new stories in `src/Modal.stories.tsx`
-   - Showcase your feature/change
-   - Include interaction tests if relevant
-
-5. **Verify Everything Works**
-   ```bash
-   pnpm type-check    # TypeScript checks
-   pnpm lint          # Linting
-   pnpm test          # All tests pass
-   pnpm build         # Build succeeds
-   ```
-
-## 📝 Code Style
+## Coding Guidelines
 
 ### TypeScript
 
-- Use TypeScript for all code
-- Add proper type annotations
-- No `any` types (use `unknown` if needed)
-- Follow existing naming conventions
+- Use TypeScript for all new code
+- Define proper types and interfaces
+- Avoid `any` types when possible
+- Use strict mode settings
 
-### React
+### React Components
 
 - Use functional components with hooks
 - Follow React best practices
-- Add JSDoc comments for props
-- Keep components focused and simple
+- Keep components focused and single-purpose
+- Use meaningful prop names
+- Document props with JSDoc comments
 
-### Sass/CSS
+### Styling
 
-- Use BEM naming convention
-- Follow mobile-first approach
-- Use Sass variables and mixins
-- Keep specificity low
-- Add responsive breakpoints as needed
+- Use Sass (.scss files) for styling
+- Follow BEM naming convention
+- Keep styles modular and component-specific
+- Ensure responsive design for all screen sizes
+- Support accessibility (WCAG 2.1 Level AA)
 
-### Example:
+### Testing
 
-```tsx
-/**
- * Modal component description
- * @param props - Component props
- */
-export const Modal: React.FC<ModalProps> = ({
-  title,
-  showModal,
-  onHideModal,
-  children,
-}) => {
-  // Implementation
-};
+- Write tests for all new features
+- Maintain or improve test coverage (target: >85%)
+- Use React Testing Library for component tests
+- Test user interactions and accessibility
+- Use descriptive test names
+
+### Commit Messages
+
+Follow conventional commit format:
+
+```
+type(scope): subject
+
+body (optional)
+
+footer (optional)
 ```
 
-## 🧪 Testing
+Types:
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation changes
+- `style`: Code style changes (formatting, etc.)
+- `refactor`: Code refactoring
+- `test`: Adding or updating tests
+- `chore`: Maintenance tasks
 
-### Test Requirements
-
-- All new features must have tests
-- Aim for >85% code coverage
-- Test user interactions
-- Test accessibility features
-- Test responsive behavior when applicable
-
-### Test Structure
-
-```tsx
-describe('Feature Name', () => {
-  it('should do something specific', () => {
-    // Arrange
-    const { container } = render(<Modal {...props} />);
-
-    // Act
-    fireEvent.click(screen.getByText('Button'));
-
-    // Assert
-    expect(screen.getByText('Result')).toBeInTheDocument();
-  });
-});
+Examples:
+```
+feat(Button): add icon support
+fix(Modal): prevent scroll when modal is open
+docs(README): update installation instructions
 ```
 
-### Running Tests
+## Project Structure
 
-```bash
-# Run all tests
-pnpm test
-
-# Run tests in watch mode
-pnpm test:watch
-
-# Run tests with coverage
-pnpm test:coverage
-
-# Run specific test file
-pnpm test Modal.test.tsx
+```
+src/
+├── components/
+│   ├── Button/
+│   │   ├── Button.tsx          # Component implementation
+│   │   ├── Button.scss         # Component styles
+│   │   ├── Button.test.tsx     # Component tests
+│   │   ├── Button.stories.tsx  # Storybook stories
+│   │   └── index.ts            # Public exports
+│   ├── Input/
+│   ├── Modal/
+│   └── index.ts                # All component exports
+└── index.ts                    # Library entry point
 ```
 
-## 📚 Documentation
+## Testing Requirements
 
-### JSDoc Comments
+All PRs must:
+- Pass all existing tests
+- Include tests for new functionality
+- Maintain or improve code coverage
+- Pass type checking (`pnpm type-check`)
+- Pass linting (`pnpm lint` and `pnpm lint:sass`)
 
-Add JSDoc for all props:
+## Documentation
 
-```tsx
-export interface ModalProps {
-  /** Title displayed in the modal header */
-  title?: string;
+- Update README.md for new features
+- Add JSDoc comments to component props
+- Create Storybook stories for new components
+- Update CHANGELOG.md following Keep a Changelog format
 
-  /** Controls whether the modal is visible */
-  showModal: boolean;
+## Questions?
 
-  /** Callback when modal should be hidden */
-  onHideModal: () => void;
-}
-```
-
-### README Updates
-
-- Add examples for new features
-- Update API reference table
-- Include screenshots/GIFs if visual changes
-- Update feature list
-
-### Storybook
-
-- Create stories for new features
-- Use descriptive story names
-- Add controls for interactive props
-- Include usage examples in story descriptions
-
-## 🐛 Bug Reports
-
-### Before Submitting
-
-1. Check existing issues
-2. Verify bug exists in latest version
-3. Test in different browsers/devices
-4. Gather reproduction steps
-
-### Bug Report Template
-
-```markdown
-**Describe the bug**
-A clear description of what the bug is.
-
-**To Reproduce**
-Steps to reproduce:
-1. Go to '...'
-2. Click on '...'
-3. See error
-
-**Expected behavior**
-What you expected to happen.
-
-**Screenshots**
-If applicable, add screenshots.
-
-**Environment:**
-- OS: [e.g. macOS, Windows]
-- Browser: [e.g. Chrome 120]
-- React version: [e.g. 19.2.3]
-- Package version: [e.g. 2.0.0]
-
-**Additional context**
-Any other relevant information.
-```
-
-## ✨ Feature Requests
-
-### Before Submitting
-
-1. Check if feature already exists
-2. Search existing feature requests
-3. Consider if it fits project scope
-4. Think about implementation approach
-
-### Feature Request Template
-
-```markdown
-**Is your feature request related to a problem?**
-A clear description of the problem.
-
-**Describe the solution you'd like**
-What you want to happen.
-
-**Describe alternatives you've considered**
-Other solutions you thought about.
-
-**Additional context**
-Screenshots, mockups, or examples.
-```
-
-## 🔀 Pull Request Process
-
-### Before Submitting PR
-
-- [ ] All tests pass (`pnpm test`)
-- [ ] Type checking passes (`pnpm type-check`)
-- [ ] Linting passes (`pnpm lint`)
-- [ ] Build succeeds (`pnpm build`)
-- [ ] Documentation updated
-- [ ] Storybook stories added (if applicable)
-- [ ] CHANGELOG.md updated
-
-### PR Title Format
-
-Use conventional commits:
-
-- `feat: add custom header support`
-- `fix: resolve z-index issue`
-- `docs: update README examples`
-- `test: add animation tests`
-- `refactor: simplify modal rendering`
-- `style: update Sass variables`
-- `chore: update dependencies`
-
-### PR Description Template
-
-```markdown
-## Description
-Brief description of changes.
-
-## Type of Change
-- [ ] Bug fix
-- [ ] New feature
-- [ ] Breaking change
-- [ ] Documentation update
-
-## Testing
-How was this tested?
-
-## Screenshots
-If applicable.
-
-## Checklist
-- [ ] Tests pass
-- [ ] Types pass
-- [ ] Lint passes
-- [ ] Build succeeds
-- [ ] Documentation updated
-- [ ] Storybook updated
-```
-
-### Review Process
-
-1. Automated checks must pass
-2. At least one maintainer approval required
-3. Address review feedback
-4. Squash commits before merge (if requested)
-
-## 📋 Commit Messages
-
-Follow conventional commits:
-
-```bash
-feat(modal): add custom footer support
-fix(styles): resolve mobile spacing issue
-docs(readme): add migration guide
-test(modal): add lifecycle callback tests
-```
-
-## 🎯 Focus Areas
-
-We especially welcome contributions in:
-
-- Accessibility improvements
-- Performance optimizations
-- Mobile/responsive enhancements
-- Documentation improvements
-- Test coverage
-- Bug fixes
-- TypeScript improvements
-
-## 🙏 Recognition
-
-Contributors will be:
-- Listed in release notes
-- Mentioned in CHANGELOG.md
-- Credited in README.md (for significant contributions)
-
-## 📞 Questions?
-
-- Open a discussion on GitHub
-- Ask in pull request comments
-- Check existing documentation
-
-## 📜 Code of Conduct
-
-- Be respectful and inclusive
-- Welcome newcomers
-- Focus on constructive feedback
-- Help others learn and grow
-
-## 📄 License
-
-By contributing, you agree that your contributions will be licensed under the MIT License.
-
----
+Feel free to open an issue for:
+- Questions about the codebase
+- Clarification on contribution guidelines
+- Discussion about potential features
 
 Thank you for contributing! 🎉

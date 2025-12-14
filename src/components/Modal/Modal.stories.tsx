@@ -7,7 +7,6 @@ const meta = {
   title: 'Modal',
   component: Modal,
   parameters: {
-    layout: 'centered',
     docs: {
       description: {
         component:
@@ -15,7 +14,6 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
   argTypes: {
     title: {
       control: 'text',

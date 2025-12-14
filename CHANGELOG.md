@@ -5,117 +5,84 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.0.0] - 2025-12-14
-
-### Breaking Changes
-
-- **Inline Styles Removed**: All inline styles replaced with CSS classes
-- **z-index Default Changed**: Updated from 1050 to 1000
-- **Removed Files**: `ModalStyle.ts` no longer exists
-
-**Note**: Styles are now automatically imported! You no longer need to manually import the CSS file.
+## [Unreleased]
 
 ### Added
+- Icon component for rendering icon fonts from Iconfont.cn and Icomoon.io
+- Support for both font-based and SVG-based icon rendering
+- Comprehensive Icon component tests (35 tests, 100% coverage)
+- Icon component Storybook documentation with 11 stories
+- Tree-shakeable Icon export
+- Responsive design for Icon component with touch optimization
 
-- 📱 **Full Responsive Design**
-  - Mobile breakpoint (≤480px) with 95% width and optimized spacing
-  - Tablet breakpoint (481-768px) with 85-90% width
-  - Desktop breakpoint (≥1024px) with fixed widths
-  - Touch-optimized buttons (44px) on mobile devices
+#### Icon Component Features
+- Two rendering modes: font (CSS class-based) and svg (SVG symbols)
+- Configurable size (pixels, em, rem)
+- Flexible color support (hex, rgb, named colors)
+- Click handler support with accessibility
+- Automatic ARIA labels
+- Touch device optimization (44px minimum touch target)
+- High contrast mode support
+- Reduced motion support
 
-- 🎨 **Sass Architecture**
-  - Professional Sass with variables and mixins
-  - BEM naming conventions
-  - Customizable Sass variables
-  - Responsive mixins for easy breakpoint management
+## [1.0.0] - 2025-12-14
 
-- ♿️ **Enhanced Accessibility**
-  - High contrast mode support
-  - Reduced motion support (`prefers-reduced-motion`)
-  - Print styles for better printing
-  - Custom scrollbar styling
-  - Focus indicators
+### Added
+- Initial release of @jayson991/react-ui
+- Modal component with multiple sizes (small, medium, large, fullscreen)
+- Button component with 4 variants (primary, secondary, danger, ghost)
+- Input component with label, error, and helper text support
+- Full TypeScript support with complete type definitions
+- Comprehensive test suites with 84 tests and 88.57% coverage
+- Responsive design for mobile (≤480px), tablet (481-768px), and desktop (≥1024px)
+- Accessibility features including ARIA attributes and keyboard navigation
+- Touch device optimizations with 44px minimum touch targets
+- High contrast mode support
+- Reduced motion support for accessibility
+- Sass-based styling with BEM naming convention
+- Storybook documentation for all components
+- Tree-shakeable ESM and CJS builds
+- Bundle size: 19.68 kB (6.12 kB gzipped)
 
-- 🎯 **New Props**
-  - `size`: Size variants (small, medium, large, fullscreen)
-  - `closeOnBackdropClick`: Control backdrop click behavior
-  - `closeOnEscape`: Control escape key behavior
-  - `showCloseButton`: Toggle close button visibility
-  - `showHeader`: Toggle header section
-  - `centered`: Vertical centering
-  - `scrollable`: Allow page scrolling
-  - `animated`: Enable/disable animations
-  - `animationDuration`: Configurable animation speed
-  - `usePortal`: Portal rendering control
-  - `portalContainer`: Custom portal container
-  - `zIndex`: Custom z-index
-  - `className`: Custom CSS class
-  - `contentStyle`: Custom content styles
-  - `backdropStyle`: Custom backdrop styles
-  - `header`: Custom header content
-  - `footer`: Custom footer content
-  - `onOpen`: Open callback
-  - `onClose`: Close callback
-  - `onAnimationEnd`: Animation complete callback
+### Features
 
-- 📚 **Documentation**
-  - Comprehensive README with examples
-  - 20 Storybook stories showcasing all features
-  - TypeScript definitions for all props
-  - Migration guide in changelog
+#### Modal Component
+- Flexible sizes: small (400px), medium (680px), large (900px), fullscreen
+- Centered and non-centered positioning options
+- Smooth fade animations with customizable duration
+- Custom header and footer support
+- Backdrop click and ESC key to close
+- Focus trap for accessibility
+- Scroll lock when modal is open
+- Responsive padding and dimensions
 
-### Changed
+#### Button Component
+- 4 variants: primary, secondary, danger, ghost
+- 3 sizes: small, medium, large
+- Loading state with spinner
+- Full width option
+- Disabled state handling
+- All standard HTML button attributes
+- Responsive sizing for different screen sizes
 
-- **Bundle Size**
-  - JavaScript: 10.37 kB → 8.59 kB (17% reduction)
-  - Added CSS: 5.23 kB (1.32 kB gzipped)
-  - Total gzipped: 4.77 kB
+#### Input Component
+- Label support with automatic ID generation
+- Error message display
+- Helper text support
+- 3 sizes: small, medium, large
+- Full width option
+- Prefix and suffix icon support
+- All standard HTML input types
+- Responsive sizing and touch-optimized inputs
 
-- **Build System**
-  - Migrated to Vite 7.2.7
-  - Added Sass 1.96.0
-  - Updated to React 19.2.3
-  - Updated to TypeScript 5.9.3
+### Technical Details
+- React 19.2.3
+- TypeScript 5.9.3
+- Sass 1.96.0
+- Vite 7.2.7 for building
+- Vitest 4.0.15 for testing
+- Storybook 10.1.8 for documentation
+- Oxlint 1.32.0 for linting
+- Stylelint 16.26.1 for Sass linting
 
-- **Testing**
-  - Migrated from Jest to Vitest 4.0.15
-  - 19 tests with 87.09% coverage
-  - Updated tests for Sass approach
-
-- **Linting**
-  - Switched to Oxlint 1.32.0 (1500x faster than ESLint)
-
-- **Storybook**
-  - Upgraded to Storybook 10.1.8
-  - Added comprehensive stories for all features
-
-### Fixed
-
-- Improved mobile experience with larger touch targets
-- Better keyboard navigation and focus management
-- Fixed z-index issues with portal rendering
-- Improved animation performance
-
-### Performance
-
-- 17% smaller JavaScript bundle
-- Better CSS caching with separate stylesheet
-- Optimized animations with CSS transitions
-- Reduced render overhead with class-based styling
-
-## [1.2.0] - Previous Version
-
-- TypeScript migration
-- Added comprehensive tests
-- Modern toolchain (Vite, Vitest, Oxlint)
-- Storybook integration
-
-## [1.1.0] - Earlier Version
-
-- Basic modal functionality
-- CSS-in-JS styling
-- Webpack build system
-
----
-
-For more details, see the [README](README.md) or visit the [GitHub repository](https://github.com/jaysonwu991/react-modal).
+[1.0.0]: https://github.com/jaysonwu991/react-ui/releases/tag/v1.0.0
