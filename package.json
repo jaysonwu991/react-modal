@@ -53,11 +53,30 @@
 		"./Icon": {
 			"types": "./lib/components/Icon/index.d.ts",
 			"import": "./lib/components/Icon/index.js"
-		}
+		},
+		"./Calendar": {
+			"types": "./lib/components/Calendar/index.d.ts",
+			"import": "./lib/components/Calendar/index.js"
+		},
+		"./Modal/styles": "./lib/components/Modal/styles.js",
+		"./Button/styles": "./lib/components/Button/styles.js",
+		"./Input/styles": "./lib/components/Input/styles.js",
+		"./Icon/styles": "./lib/components/Icon/styles.js",
+		"./Calendar/styles": "./lib/components/Calendar/styles.js",
+		"./icons/loader": "./lib/assets/icons/loader.js"
 	},
 	"files": [
 		"lib",
-		"README.md"
+		"README.md",
+		"!lib/**/*.test.*",
+		"!lib/**/*.spec.*",
+		"!lib/**/*.stories.*"
+	],
+	"sideEffects": [
+		"*.scss",
+		"*.css",
+		"./src/assets/icons/iconfont.js",
+		"./lib/**/*.css"
 	],
 	"scripts": {
 		"build": "vite build",

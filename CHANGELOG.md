@@ -8,22 +8,47 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Icon component for rendering icon fonts from Iconfont.cn and Icomoon.io
-- Support for both font-based and SVG-based icon rendering
-- Comprehensive Icon component tests (35 tests, 100% coverage)
-- Icon component Storybook documentation with 11 stories
-- Tree-shakeable Icon export
-- Responsive design for Icon component with touch optimization
+- Calendar component with full date selection functionality
+- Support for single, multiple, and range date selection modes
+- Calendar keyboard navigation and accessibility features
+- Comprehensive Calendar component tests
+- Calendar component Storybook documentation
+- Tree-shakeable Calendar export
+- Style loader utilities for dynamic style injection
+- Global SCSS utilities and mixins in `src/styles/`
+- Icon fonts and assets in `src/assets/icons/`
 
-#### Icon Component Features
-- Two rendering modes: font (CSS class-based) and svg (SVG symbols)
-- Configurable size (pixels, em, rem)
-- Flexible color support (hex, rgb, named colors)
-- Click handler support with accessibility
-- Automatic ARIA labels
-- Touch device optimization (44px minimum touch target)
-- High contrast mode support
-- Reduced motion support
+#### Calendar Component Features
+- Three selection modes: single date, multiple dates, and date range
+- Month and year views for easy navigation
+- Min/max date constraints
+- Disabled and highlighted dates support (array or function)
+- Customizable first day of week (Sunday-Saturday)
+- Week numbers display option
+- Today and clear buttons
+- Full keyboard navigation (arrow keys, Enter, Escape)
+- Locale support for date formatting
+- Adjacent month dates display
+- Custom date rendering and styling
+- Touch device optimization
+- ARIA roles and screen reader support
+
+#### Architecture Improvements
+- Component-level style loaders (`styles.ts` files)
+- Shared SCSS utilities and mixins for consistency
+- Improved tree-shaking with per-component style imports
+- Icon font loader with lazy-loading support
+
+### Changed
+- Updated bundle size to ~28 kB (~9 kB gzipped) with new components
+- Enhanced documentation with Calendar examples
+- Updated component count from 3 to 5 components
+- Improved PROJECT_SUMMARY.md with latest statistics
+- Refreshed QUICK_START.md with Calendar examples
+
+### Fixed
+- Cleaned up .DS_Store files from repository
+- Removed backup files (package.json.bak)
 
 ## [1.0.0] - 2025-12-14
 

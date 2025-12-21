@@ -7,7 +7,7 @@ A modern, responsive, and accessible React UI component library with TypeScript 
 
 ## Features
 
-- 🎨 **Multiple Components** - Modal, Button, Input, Icon, and more
+- 🎨 **Multiple Components** - Modal, Button, Input, Icon, Calendar, and more
 - 📱 **Fully Responsive** - Optimized for mobile, tablet, and desktop
 - ♿️ **Accessible** - WCAG compliant with ARIA and keyboard navigation
 - 🎨 **Sass Styling** - Clean, maintainable CSS architecture
@@ -30,11 +30,12 @@ pnpm add @jayson991/react-ui
 
 ```tsx
 import React, { useState } from 'react';
-import { Modal, Button, Input, Icon } from '@jayson991/react-ui';
+import { Modal, Button, Input, Icon, Calendar } from '@jayson991/react-ui';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState('');
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
   return (
     <div>
@@ -43,6 +44,12 @@ function App() {
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Enter your name"
+      />
+
+      <Calendar
+        value={selectedDate}
+        onChange={(date) => setSelectedDate(date as Date)}
+        mode="single"
       />
 
       <Button onClick={() => setShowModal(true)}>
@@ -56,6 +63,9 @@ function App() {
         onHideModal={() => setShowModal(false)}
       >
         <p>Hello, {name || 'Guest'}!</p>
+        {selectedDate && (
+          <p>Selected date: {selectedDate.toLocaleDateString()}</p>
+        )}
       </Modal>
     </div>
   );
@@ -168,6 +178,50 @@ import './iconfont.js';   // For SVG mode
 <Icon name="heart" size={24} color="#ef4444" />
 ```
 
+### Calendar
+
+A fully-featured calendar component with multiple selection modes.
+
+```tsx
+import { Calendar } from '@jayson991/react-ui';
+
+<Calendar
+  value={selectedDate}
+  onChange={(date) => setSelectedDate(date)}
+  mode="single"
+  showTodayButton
+  showWeekNumbers
+/>
+```
+
+**Props:**
+- `value`: Selected date(s) - Date | Date[] | DateRange | null
+- `onChange`: Callback when date is selected
+- `mode`: 'single' | 'multiple' | 'range' (default: 'single')
+- `minDate`: Minimum selectable date
+- `maxDate`: Maximum selectable date
+- `disabledDates`: Array of disabled dates or function
+- `highlightedDates`: Array of highlighted dates or function
+- `firstDayOfWeek`: 0-6 (0 = Sunday, 1 = Monday)
+- `showWeekNumbers`: Display week numbers
+- `showTodayButton`: Show button to jump to today
+- `showClearButton`: Show button to clear selection
+- `keyboardNavigation`: Enable keyboard controls
+- `view`: 'month' | 'year'
+- `locale`: Locale for date formatting (default: 'en-US')
+
+**Selection Modes:**
+```tsx
+// Single date selection
+<Calendar mode="single" value={date} onChange={setDate} />
+
+// Multiple dates selection
+<Calendar mode="multiple" value={dates} onChange={setDates} />
+
+// Date range selection
+<Calendar mode="range" value={{ start, end }} onChange={setRange} />
+```
+
 ## Bundle Size
 
 | File | Size | Gzipped |
@@ -200,10 +254,11 @@ Import only what you need:
 
 ```tsx
 // Import specific components
-import { Button } from '@jayson991/react-ui';
+import { Button, Calendar } from '@jayson991/react-ui';
 
 // Or import from subpaths
 import Button from '@jayson991/react-ui/Button';
+import Calendar from '@jayson991/react-ui/Calendar';
 ```
 
 ## Customization

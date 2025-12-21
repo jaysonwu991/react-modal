@@ -1,0 +1,637 @@
+// Calendar Component Styles - Optimized
+@import '../../styles/utilities';
+
+.calendar {
+	display: inline-flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 350px;
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+	padding: 16px;
+	font-family: inherit;
+	user-select: none;
+
+	&--disabled {
+		opacity: 0.6;
+		pointer-events: none;
+	}
+
+	// Header
+	&__header {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		margin-bottom: 16px;
+		padding-bottom: 12px;
+		border-bottom: 1px solid $gray-200;
+	}
+
+	&__header-nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
+	}
+
+	&__header-title {
+		flex: 1;
+		padding: 8px 16px;
+		font-size: 16px;
+		font-weight: 600;
+		color: $gray-800;
+		@include button-reset;
+		border-radius: 6px;
+		@include transition-standard;
+		text-align: center;
+
+		&:hover {
+			background: $gray-100;
+			color: $primary;
+		}
+
+		&:focus-visible {
+			@include focus-ring;
+		}
+
+		&:disabled {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
+	}
+
+	&__nav-button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		font-size: 20px;
+		font-weight: 600;
+		color: $gray-500;
+		@include button-reset;
+		border-radius: 6px;
+		@include transition-standard;
+
+		&:hover {
+			background: $gray-100;
+			color: $primary;
+		}
+
+		&:active {
+			background: $gray-200;
+		}
+
+		&:focus-visible {
+			@include focus-ring;
+		}
+
+		&:disabled {
+			cursor: not-allowed;
+			opacity: 0.3;
+		}
+	}
+
+	// Body
+	&__body {
+		flex: 1;
+		min-height: 280px;
+	}
+
+	// Month View
+	&__month-view {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	&__weekdays {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		gap: 4px;
+		margin-bottom: 8px;
+	}
+
+	&__weekday {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 32px;
+		font-size: 12px;
+		font-weight: 600;
+		color: $gray-500;
+		text-transform: uppercase;
+
+		&--week-number {
+			color: $gray-400;
+		}
+	}
+
+	&__days {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	&__week {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		gap: 4px;
+	}
+
+	&__week-number {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 11px;
+		font-weight: 500;
+		color: $gray-400;
+	}
+
+	&__day {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 36px;
+		font-size: 14px;
+		font-weight: 500;
+		color: $gray-700;
+		@include button-reset;
+		border: 2px solid transparent;
+		border-radius: 8px;
+		@include transition-fast;
+
+		&:hover:not(&--disabled, &--empty) {
+			background: $gray-100;
+			color: $primary;
+			transform: scale(1.05);
+		}
+
+		&:focus-visible {
+			@include focus-ring;
+			z-index: 1;
+		}
+
+		&--empty {
+			pointer-events: none;
+		}
+
+		&--today {
+			font-weight: 700;
+			color: $primary;
+			border-color: $primary;
+		}
+
+		&--selected {
+			background: $primary;
+			color: #fff;
+			font-weight: 600;
+
+			&:hover {
+				background: $primary-hover;
+				color: #fff;
+			}
+		}
+
+		&--disabled {
+			color: $gray-300;
+			cursor: not-allowed;
+			pointer-events: none;
+
+			&::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 10%;
+				right: 10%;
+				height: 1px;
+				background: $gray-300;
+				transform: translateY(-50%);
+			}
+		}
+
+		&--highlighted {
+			background: #fef3c7;
+			color: #92400e;
+
+			&:hover {
+				background: #fde68a;
+			}
+		}
+
+		&--adjacent {
+			color: $gray-400;
+			font-weight: 400;
+		}
+
+		&--in-range {
+			background: #dbeafe;
+			color: #1e40af;
+			border-radius: 0;
+
+			&:hover {
+				background: #bfdbfe;
+			}
+		}
+
+		&--range-start {
+			border-top-left-radius: 8px;
+			border-bottom-left-radius: 8px;
+			background: $primary;
+			color: #fff;
+
+			&:hover {
+				background: $primary-hover;
+				color: #fff;
+			}
+		}
+
+		&--range-end {
+			border-top-right-radius: 8px;
+			border-bottom-right-radius: 8px;
+			background: $primary;
+			color: #fff;
+
+			&:hover {
+				background: $primary-hover;
+				color: #fff;
+			}
+		}
+
+		&--range-start#{&}--range-end {
+			border-radius: 8px;
+		}
+	}
+
+	// Year View
+	&__year-view {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__months {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 8px;
+	}
+
+	&__month {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 64px;
+		font-size: 14px;
+		font-weight: 500;
+		color: $gray-700;
+		@include button-reset;
+		border: 2px solid transparent;
+		border-radius: 8px;
+		@include transition-standard;
+
+		&:hover:not(:disabled) {
+			background: $gray-100;
+			color: $primary;
+			transform: scale(1.05);
+		}
+
+		&:focus-visible {
+			@include focus-ring;
+		}
+
+		&--current {
+			font-weight: 700;
+			color: $primary;
+			border-color: $primary;
+		}
+
+		&--selected {
+			background: $primary;
+			color: #fff;
+			font-weight: 600;
+
+			&:hover {
+				background: $primary-hover;
+			}
+		}
+
+		&:disabled {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
+	}
+
+	// Footer
+	&__footer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
+		margin-top: 16px;
+		padding-top: 12px;
+		border-top: 1px solid $gray-200;
+	}
+
+	&__footer-button {
+		flex: 1;
+		padding: 8px 16px;
+		font-size: 14px;
+		font-weight: 500;
+		color: $primary;
+		background: transparent;
+		border: 1px solid $primary;
+		border-radius: 6px;
+		cursor: pointer;
+		@include transition-standard;
+
+		&:hover:not(:disabled) {
+			background: $primary;
+			color: #fff;
+		}
+
+		&:active:not(:disabled) {
+			background: $primary-hover;
+		}
+
+		&:focus-visible {
+			@include focus-ring;
+		}
+
+		&:disabled {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
+
+		&--clear {
+			color: $gray-500;
+			border-color: $gray-300;
+
+			&:hover:not(:disabled) {
+				background: $gray-100;
+				color: $gray-800;
+				border-color: $gray-400;
+			}
+		}
+	}
+
+	// Responsive Design
+	@include mobile {
+		max-width: 100%;
+		padding: 12px;
+
+		&__header-title {
+			font-size: 14px;
+			padding: 6px 12px;
+		}
+
+		&__nav-button {
+			width: 32px;
+			height: 32px;
+			font-size: 18px;
+		}
+
+		&__day {
+			height: 32px;
+			font-size: 13px;
+		}
+
+		&__month {
+			height: 56px;
+			font-size: 13px;
+		}
+
+		&__footer-button {
+			padding: 6px 12px;
+			font-size: 13px;
+		}
+	}
+
+	@include tablet {
+		max-width: 320px;
+		padding: 14px;
+
+		&__day {
+			height: 34px;
+		}
+
+		&__month {
+			height: 60px;
+		}
+	}
+
+	@include desktop {
+		max-width: 380px;
+
+		&__day {
+			height: 40px;
+			font-size: 15px;
+		}
+
+		&__month {
+			height: 68px;
+			font-size: 15px;
+		}
+	}
+
+	// Touch device optimizations
+	@include touch {
+		&__day,
+		&__month {
+			min-height: 44px;
+		}
+
+		&__nav-button {
+			min-width: 44px;
+			min-height: 44px;
+		}
+
+		&__day:hover,
+		&__month:hover {
+			transform: none;
+		}
+
+		&__day:active:not(&__day--disabled),
+		&__month:active {
+			transform: scale(0.95);
+		}
+	}
+
+	// Dark mode support
+	@include dark-mode {
+		background: $gray-800;
+		color: $gray-100;
+
+		&__header {
+			border-bottom-color: $gray-700;
+		}
+
+		&__header-title {
+			color: $gray-100;
+
+			&:hover {
+				background: $gray-700;
+				color: #60a5fa;
+			}
+		}
+
+		&__nav-button {
+			color: $gray-400;
+
+			&:hover {
+				background: $gray-700;
+				color: #60a5fa;
+			}
+
+			&:active {
+				background: $gray-600;
+			}
+		}
+
+		&__weekday {
+			color: $gray-400;
+		}
+
+		&__day {
+			color: $gray-200;
+
+			&:hover:not(&--disabled, &--empty) {
+				background: $gray-700;
+				color: #60a5fa;
+			}
+
+			&--today {
+				color: #60a5fa;
+				border-color: #60a5fa;
+			}
+
+			&--selected {
+				background: $primary-hover;
+
+				&:hover {
+					background: $primary-dark;
+				}
+			}
+
+			&--disabled {
+				color: $gray-600;
+
+				&::after {
+					background: $gray-600;
+				}
+			}
+
+			&--highlighted {
+				background: #451a03;
+				color: #fbbf24;
+
+				&:hover {
+					background: #78350f;
+				}
+			}
+
+			&--adjacent {
+				color: $gray-500;
+			}
+
+			&--in-range {
+				background: #1e3a8a;
+				color: #93c5fd;
+
+				&:hover {
+					background: #1e40af;
+				}
+			}
+
+			&--range-start,
+			&--range-end {
+				background: $primary-hover;
+
+				&:hover {
+					background: $primary-dark;
+				}
+			}
+		}
+
+		&__month {
+			color: $gray-200;
+
+			&:hover:not(:disabled) {
+				background: $gray-700;
+				color: #60a5fa;
+			}
+
+			&--current {
+				color: #60a5fa;
+				border-color: #60a5fa;
+			}
+
+			&--selected {
+				background: $primary-hover;
+
+				&:hover {
+					background: $primary-dark;
+				}
+			}
+		}
+
+		&__footer {
+			border-top-color: $gray-700;
+		}
+
+		&__footer-button {
+			color: #60a5fa;
+			border-color: $primary-hover;
+
+			&:hover:not(:disabled) {
+				background: $primary-hover;
+				color: #fff;
+			}
+
+			&--clear {
+				color: $gray-400;
+				border-color: $gray-600;
+
+				&:hover:not(:disabled) {
+					background: $gray-700;
+					color: $gray-200;
+					border-color: $gray-500;
+				}
+			}
+		}
+	}
+
+	// High contrast & reduced motion
+	@include high-contrast {
+		border: 2px solid currentcolor;
+
+		&__day,
+		&__month {
+			border: 1px solid currentcolor;
+
+			&--selected {
+				border: 3px solid currentcolor;
+			}
+		}
+
+		&__footer-button {
+			border: 2px solid currentcolor;
+		}
+	}
+
+	@include reduced-motion {
+		&__day,
+		&__month,
+		&__nav-button,
+		&__header-title,
+		&__footer-button {
+			transition: none;
+			transform: none;
+		}
+
+		&__day:hover,
+		&__month:hover {
+			transform: none;
+		}
+	}
+}

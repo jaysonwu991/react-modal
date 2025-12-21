@@ -98,7 +98,7 @@ export const Default: Story = {
 
 export const WithColor: Story = {
 	args: {
-		name: 'heart',
+		name: 'heart', // heart icon
 		size: 32,
 		color: '#ff0000',
 	},
@@ -126,11 +126,11 @@ export const Clickable: Story = {
 export const Sizes: Story = {
 	render: () => (
 		<div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-			<Icon name="star" size={16} color="#fbbf24" />
-			<Icon name="star" size={24} color="#fbbf24" />
-			<Icon name="star" size={32} color="#fbbf24" />
-			<Icon name="star" size={48} color="#fbbf24" />
-			<Icon name="star" size={64} color="#fbbf24" />
+			<Icon name="star" size={16} color="#fbbf24" title="star icon" />
+			<Icon name="star" size={24} color="#fbbf24" title="star icon" />
+			<Icon name="star" size={32} color="#fbbf24" title="star icon" />
+			<Icon name="star" size={48} color="#fbbf24" title="star icon" />
+			<Icon name="star" size={64} color="#fbbf24" title="star icon" />
 		</div>
 	),
 };
@@ -139,43 +139,45 @@ export const Sizes: Story = {
 export const Colors: Story = {
 	render: () => (
 		<div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-			<Icon name="circle" size={32} color="#ef4444" />
-			<Icon name="circle" size={32} color="#f59e0b" />
-			<Icon name="circle" size={32} color="#10b981" />
-			<Icon name="circle" size={32} color="#3b82f6" />
-			<Icon name="circle" size={32} color="#8b5cf6" />
-			<Icon name="circle" size={32} color="#ec4899" />
+			<Icon name="star" size={32} color="#ef4444" />
+			<Icon name="star" size={32} color="#f59e0b" />
+			<Icon name="star" size={32} color="#10b981" />
+			<Icon name="star" size={32} color="#3b82f6" />
+			<Icon name="star" size={32} color="#8b5cf6" />
+			<Icon name="star" size={32} color="#ec4899" />
 		</div>
 	),
 };
 
-// Common Icons
+// Common Icons - All icons from iconfont.json
 export const CommonIcons: Story = {
 	render: () => (
 		<div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '24px' }}>
 			{[
-				'home',
+				'upload',
 				'user',
-				'heart',
 				'star',
-				'search',
-				'settings',
-				'mail',
+				'trash',
+				'close',
+				'home',
 				'bell',
 				'calendar',
+				'heart', // heart
 				'camera',
-				'edit',
-				'trash',
 				'download',
-				'upload',
-				'check',
-				'close',
+				'edit',
+				'mail',
 				'arrow-left',
+				'settings',
 				'arrow-right',
+				'search',
+				'check',
 			].map((icon) => (
 				<div key={icon} style={{ textAlign: 'center' }}>
 					<Icon name={icon} size={32} color="#1f2937" />
-					<div style={{ fontSize: '12px', marginTop: '8px', color: '#6b7280' }}>{icon}</div>
+					<div style={{ fontSize: '12px', marginTop: '8px', color: '#6b7280' }}>
+						{icon === 'heart' ? 'heart' : icon}
+					</div>
 				</div>
 			))}
 		</div>
@@ -216,6 +218,7 @@ export const InteractiveIcons: Story = {
 				color="#ef4444"
 				onClick={() => alert('Heart clicked!')}
 				ariaLabel="Like"
+				title="Like"
 			/>
 			<Icon
 				name="star"
@@ -223,20 +226,23 @@ export const InteractiveIcons: Story = {
 				color="#fbbf24"
 				onClick={() => alert('Star clicked!')}
 				ariaLabel="Favorite"
+				title="Favorite"
 			/>
 			<Icon
-				name="share"
+				name="upload"
 				size={32}
 				color="#3b82f6"
-				onClick={() => alert('Share clicked!')}
-				ariaLabel="Share"
+				onClick={() => alert('Upload clicked!')}
+				ariaLabel="Upload"
+				title="Upload"
 			/>
 			<Icon
-				name="bookmark"
+				name="download"
 				size={32}
 				color="#8b5cf6"
-				onClick={() => alert('Bookmark clicked!')}
-				ariaLabel="Bookmark"
+				onClick={() => alert('Download clicked!')}
+				ariaLabel="Download"
+				title="Download"
 			/>
 		</div>
 	),
@@ -259,8 +265,8 @@ export const InButtons: Story = {
 					cursor: 'pointer',
 				}}
 			>
-				<Icon name="plus" size={16} color="#ffffff" />
-				<span>Add Item</span>
+				<Icon name="upload" size={16} color="#ffffff" />
+				<span>Upload</span>
 			</button>
 
 			<button
@@ -389,7 +395,7 @@ export const Animations: Story = {
 	render: () => (
 		<div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
 			<div style={{ textAlign: 'center' }}>
-				<Icon name="loading" size={32} color="#3b82f6" spin />
+				<Icon name="settings" size={32} color="#3b82f6" spin />
 				<div style={{ fontSize: '12px', marginTop: '8px', color: '#6b7280' }}>Spin</div>
 			</div>
 			<div style={{ textAlign: 'center' }}>
@@ -438,7 +444,7 @@ export const LoadingState: Story = {
 					cursor: 'wait',
 				}}
 			>
-				<Icon name="save" size={16} color="#ffffff" loading />
+				<Icon name="upload" size={16} color="#ffffff" loading />
 				<span>Saving...</span>
 			</button>
 		</div>
@@ -458,8 +464,8 @@ export const Badges: Story = {
 				<div style={{ fontSize: '12px', marginTop: '8px', color: '#6b7280' }}>Messages</div>
 			</div>
 			<div style={{ textAlign: 'center' }}>
-				<Icon name="shopping-cart" size={32} color="#6b7280" badge={3} badgeColor="#10b981" />
-				<div style={{ fontSize: '12px', marginTop: '8px', color: '#6b7280' }}>Cart</div>
+				<Icon name="download" size={32} color="#6b7280" badge={3} badgeColor="#10b981" />
+				<div style={{ fontSize: '12px', marginTop: '8px', color: '#6b7280' }}>Downloads</div>
 			</div>
 			<div style={{ textAlign: 'center' }}>
 				<Icon name="user" size={32} color="#6b7280" badge="NEW" badgeColor="#8b5cf6" />
@@ -514,7 +520,7 @@ export const WithTooltips: Story = {
 			<Icon name="home" size={32} color="#6b7280" title="Go to home page" />
 			<Icon name="search" size={32} color="#6b7280" title="Search" />
 			<Icon name="settings" size={32} color="#6b7280" title="Open settings" />
-			<Icon name="help" size={32} color="#6b7280" title="Get help" />
+			<Icon name="bell" size={32} color="#6b7280" title="Get notifications" />
 		</div>
 	),
 };
@@ -552,7 +558,7 @@ export const ComplexExample: Story = {
 			</div>
 
 			<div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-				<Icon name="refresh" size={24} color="#6b7280" spin title="Syncing..." />
+				<Icon name="settings" size={24} color="#6b7280" spin title="Syncing..." />
 				<Icon name="download" size={24} color="#10b981" rotate={180} title="Upload file" />
 				<Icon
 					name="arrow-left"

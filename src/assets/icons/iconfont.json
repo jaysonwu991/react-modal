@@ -1,0 +1,135 @@
+{
+  "id": "5093967",
+  "name": "react-ui",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "240135",
+      "name": "upload",
+      "font_class": "upload",
+      "unicode": "e75d",
+      "unicode_decimal": 59229
+    },
+    {
+      "icon_id": "880404",
+      "name": "user",
+      "font_class": "user",
+      "unicode": "e6bc",
+      "unicode_decimal": 59068
+    },
+    {
+      "icon_id": "1026475",
+      "name": "star",
+      "font_class": "star",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "1027895",
+      "name": "trash",
+      "font_class": "trash",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "2861550",
+      "name": "close",
+      "font_class": "close",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "4766685",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e7c6",
+      "unicode_decimal": 59334
+    },
+    {
+      "icon_id": "12721176",
+      "name": "bell",
+      "font_class": "bell",
+      "unicode": "e74a",
+      "unicode_decimal": 59210
+    },
+    {
+      "icon_id": "12828056",
+      "name": "calendar ",
+      "font_class": "calendar",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "12934664",
+      "name": "heart",
+      "font_class": "heart",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "15838440",
+      "name": "camera",
+      "font_class": "camera",
+      "unicode": "e667",
+      "unicode_decimal": 58983
+    },
+    {
+      "icon_id": "15838464",
+      "name": "download",
+      "font_class": "download",
+      "unicode": "e66c",
+      "unicode_decimal": 58988
+    },
+    {
+      "icon_id": "18072089",
+      "name": "edit",
+      "font_class": "edit",
+      "unicode": "e7e4",
+      "unicode_decimal": 59364
+    },
+    {
+      "icon_id": "25972430",
+      "name": "mail",
+      "font_class": "mail",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "29649812",
+      "name": "arrow-left",
+      "font_class": "arrow-left",
+      "unicode": "ed4e",
+      "unicode_decimal": 60750
+    },
+    {
+      "icon_id": "36622673",
+      "name": "settings",
+      "font_class": "settings",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "40379174",
+      "name": "arrow-right",
+      "font_class": "arrow-right",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "44044024",
+      "name": "search",
+      "font_class": "search",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "44063000",
+      "name": "check",
+      "font_class": "check",
+      "unicode": "e9b0",
+      "unicode_decimal": 59824
+    }
+  ]
+}

@@ -13,14 +13,22 @@ pnpm add @jayson991/react-ui
 ## Basic Usage
 
 ```tsx
-import { Modal, Button, Input } from '@jayson991/react-ui';
+import { Modal, Button, Input, Calendar } from '@jayson991/react-ui';
 import { useState } from 'react';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
   return (
     <>
+      <Calendar
+        value={selectedDate}
+        onChange={(date) => setSelectedDate(date as Date)}
+        mode="single"
+        showTodayButton
+      />
+
       <Button onClick={() => setIsOpen(true)}>
         Open Modal
       </Button>
@@ -31,6 +39,9 @@ function App() {
         title="Hello World"
       >
         <p>This is a modal!</p>
+        {selectedDate && (
+          <p>Selected: {selectedDate.toLocaleDateString()}</p>
+        )}
       </Modal>
     </>
   );
@@ -165,6 +176,62 @@ function PriceInput() {
 }
 ```
 
+### Date Range Picker
+
+```tsx
+import { Calendar, type DateRange } from '@jayson991/react-ui';
+
+function BookingForm() {
+  const [dateRange, setDateRange] = useState<DateRange | null>(null);
+
+  const today = new Date();
+  const oneYearFromNow = new Date();
+  oneYearFromNow.setFullYear(today.getFullYear() + 1);
+
+  return (
+    <div>
+      <h3>Select booking dates</h3>
+      <Calendar
+        mode="range"
+        value={dateRange}
+        onChange={(range) => setDateRange(range as DateRange)}
+        minDate={today}
+        maxDate={oneYearFromNow}
+        showWeekNumbers
+        firstDayOfWeek={1}
+      />
+      {dateRange && (
+        <p>
+          From: {dateRange.start.toLocaleDateString()}
+          To: {dateRange.end.toLocaleDateString()}
+        </p>
+      )}
+    </div>
+  );
+}
+```
+
+### Multiple Date Selection
+
+```tsx
+function EventScheduler() {
+  const [selectedDates, setSelectedDates] = useState<Date[]>([]);
+
+  return (
+    <div>
+      <Calendar
+        mode="multiple"
+        value={selectedDates}
+        onChange={(dates) => setSelectedDates(dates as Date[])}
+        showTodayButton
+        showClearButton
+      />
+      <p>Selected {selectedDates.length} date(s)</p>
+    </div>
+  );
+}
+```
+
 ## Component Props Quick Reference
 
 ### Modal
@@ -197,6 +264,32 @@ function PriceInput() {
 | `prefix` | ReactNode | - | Element before input |
 | `suffix` | ReactNode | - | Element after input |
 
+### Icon
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `name` | string | - | **Required**. Icon name without 'icon-' prefix |
+| `type` | 'font'\|'svg' | 'font' | Icon type |
+| `size` | number | 16 | Icon size in pixels |
+| `color` | string | - | Icon color (hex, rgb, or named) |
+| `onClick` | function | - | Click handler |
+| `ariaLabel` | string | - | Accessibility label |
+
+### Calendar
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | Date\|Date[]\|DateRange\|null | null | Selected date(s) |
+| `onChange` | function | - | Called when date is selected |
+| `mode` | 'single'\|'multiple'\|'range' | 'single' | Selection mode |
+| `minDate` | Date | - | Minimum selectable date |
+| `maxDate` | Date | - | Maximum selectable date |
+| `firstDayOfWeek` | 0-6 | 0 | First day of week (0=Sunday) |
+| `showWeekNumbers` | boolean | false | Display week numbers |
+| `showTodayButton` | boolean | true | Show today button |
+| `showClearButton` | boolean | true | Show clear button |
+| `keyboardNavigation` | boolean | true | Enable keyboard navigation |
+| `locale` | string | 'en-US' | Locale for date formatting |
+| `disabled` | boolean | false | Disable the calendar |
+
 ## Custom Styling
 
 All components accept `className` and `style` props:
@@ -214,11 +307,14 @@ All components accept `className` and `style` props:
 Full TypeScript support included:
 
 ```tsx
-import { ButtonProps, InputProps, ModalProps } from '@jayson991/react-ui';
+import { ButtonProps, InputProps, ModalProps, CalendarProps, type DateRange } from '@jayson991/react-ui';
 
 const MyButton: React.FC<ButtonProps> = (props) => {
   return <Button {...props} />;
 };
+
+// Using DateRange type
+const [range, setRange] = useState<DateRange | null>(null);
 ```
 
 ## Troubleshooting
